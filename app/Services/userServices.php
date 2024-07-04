@@ -37,7 +37,15 @@ class UserServices{
         return false;
     }
 
-    //logout 
+    //register a user 
+    public function Register($formdata)
+    {
+      $email=$formdata->input("email");
+      $name=$formdata->input("name");
+      $password=$formdata->input("password");
+      //deb
+      print($email);
+    }
 
 }
 

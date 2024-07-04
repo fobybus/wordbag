@@ -14,15 +14,15 @@ Route::get("/",function()
 
 //login routes 
 Route::get("login",[LoginController::class,"index"])->name("login");
-Route::post("login",[LoginController::class,"LoginIn"])->name("login.login");
+Route::post("login",[LoginController::class,"login"])->name("login.login");
 
 //notes  routes 
 Route::get("Note",[NoteController::class,"index"])->name("notes");
 
-Route::get("Note",[NoteController::class,"createnote"])->name("note.create.show");
+Route::get("Note/create",[NoteController::class,"createform"])->name("note.create.show");
 Route::post("Note",[NoteController::class,"createnote"])->name("note.create");
 
-Route::get("Note/update/{id}",[NoteController::class,"updatenote"])->name("note.update.show");
+Route::get("Note/update/{id}",[NoteController::class,"updateform"])->name("note.update.show");
 Route::post("Note/update/{id}",[NoteController::class,"updatenote"])->name("note.update");
 
 Route::get("Note/info/{id}",[NoteController::class,"noteinfo"])->name("note.info");

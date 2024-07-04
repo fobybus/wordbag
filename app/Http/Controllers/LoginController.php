@@ -14,7 +14,7 @@ class LoginController extends Controller
      }
 
      //show login form
-     function index()
+    public  function index()
      {
         return view("Login.login");
      }
