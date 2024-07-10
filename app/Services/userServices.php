@@ -2,6 +2,7 @@
 namespace App\Services;
 //
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserServices{
@@ -22,19 +23,15 @@ class UserServices{
     //change password 
     public function changePassword($password,User $user)
     {
-        $pass=bcrypt($password);
-        $user->password($pass);
-        $user->save();
+        //$pass=bcrypt($password);
+        $user->password=$password;
+        return  $user->save();
     }
 
     //authenticate 
     public function Authenticate($credential)
     {
-        $r=Auth::attempt($credential);
-        if($r)
-        return true;
-        else 
-        return false;
+      return Auth::attempt($credential);
     }
 
     //register a user 
@@ -43,11 +40,24 @@ class UserServices{
       $email=$formdata->input("email");
       $name=$formdata->input("name");
       $password=$formdata->input("password");
-      //deb
-      print($email);
+      //dd($email);
+      $user=new User();
+      $user->name=$name;
+      $user->email=$email;
+      $user->password=$password;
+     return $user->save();
+    }
+
+    //signout
+    function logout(Request $req)
+    {
+      Auth::logout();
+      $req->session()->invalidate();
     }
 
 }
 
-
+//lat updated 7/24 
 ?>
+
+
