@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('build/assets/root-MriMMzvk.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/component-B5Ih6gIL.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('build/assets/logo-B02QUcVt.png') }}">
+    @php
+        $theme = $_COOKIE['theme'];
+    @endphp
+    @if ($theme == 'day')
+        <link rel="stylesheet" href="{{ asset('build/assets/root-day-CDYMKnvQ.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/component-day-DJZPeAJH.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('build/assets/root-BPYJc0Yv.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/component-DKHGv6HG.css') }}">
+    @endif
     <script defer src={{ asset('build/assets/root.js') }}></script>
     <title>Word Bag</title>
 </head>
@@ -30,12 +39,18 @@
                     <span>&#x1F6AA;</span>
                     <span>logout</span>
                 </a>
-                <div class="shift-theme" id="shift-theme">&#127769;</div>
+                <div class="shift-theme" id="shift-theme">
+                    @if ($theme == 'day')
+                        &#127769;
+                    @else
+                        &#9737;
+                    @endif
+                </div>
             </div>
 
             <div class="drawer">
                 <div class="drawer-container">
-                    <label for="toggle">&#9776;</label>
+                    <label for="toggle" id="humberger">&#9776;</label>
                     <input type="checkbox" id="toggle"></input>
                     <div class="drawer-bar">
                         <div class="drawer-header">
@@ -58,7 +73,13 @@
                                 <span>logout</span>
                             </a>
                             <div class="shift-theme drawer-switch">
-                                <span>&#127769;</span>
+                                <span>
+                                    @if ($theme == 'day')
+                                        &#127769;
+                                    @else
+                                        &#9737;
+                                    @endif
+                                </span>
                             </div>
                         </div>
                     </div>

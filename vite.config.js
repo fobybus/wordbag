@@ -6,8 +6,11 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/component.css',
+                 'resources/css/component-day.css',
                 'resources/css/root.css',
+                'resources/css/root-day.css',
                 'resources/css/profile.svg',
+                'resources/css/logo.png',
                 //manually copied root.js
             ],
             refresh: true,

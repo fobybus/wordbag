@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('build/assets/root-MriMMzvk.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/component-B5Ih6gIL.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('build/assets/logo-B02QUcVt.png') }}">
+    @php
+        $theme = $_COOKIE['theme'];
+    @endphp
+    @if($theme=='day')
+    <link rel="stylesheet" href="{{ asset('build/assets/root-day-CDYMKnvQ.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/component-day-DJZPeAJH.css') }}">
+    @else 
+    <link rel="stylesheet" href="{{ asset('build/assets/root-BPYJc0Yv.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/component-DKHGv6HG.css') }}">
+    @endif
     <script defer src={{ asset('build/assets/root.js') }}></script>
     <title>word bag</title>
 </head>
