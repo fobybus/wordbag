@@ -30,8 +30,15 @@ Node.js & npm
 `npm run build`
 
 * Manually copy the js file to public dir
+* After preprocessing css files, change the name of css files under `resources/view/layout/root.blade.php` and `resources/view/layout/guest.blade.php/` 
 
 `composer install`
+
+* create **database.sqlite** in **database/**
+  
+`cp .env.example .env`
+
+`php artisan key:generate`
 
 `php artisan migrate`
 
